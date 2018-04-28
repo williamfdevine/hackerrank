@@ -2,6 +2,9 @@
 	rectangle_area.cpp
 */
 
+#include <stdint.h>
+#include <iostream>
+
 class Rectangle
 {
 
@@ -14,7 +17,7 @@ public:
 	{
 		std::cout << width_ << " " << height_ << std::endl;
 	}
-	
+
 protected:
 
 	uint32_t width_;
