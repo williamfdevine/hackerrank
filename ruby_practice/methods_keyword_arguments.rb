@@ -1,14 +1,13 @@
 # methods_keyword_arguments.rb
 
 def convert_temp(temperature, input_scale:, output_scale: 'celsius')
-	puts "input = #{temperature} scale = #{input_scale} output_scale = #{output_scale}"
 
-	if input_scale == "celsius"	
-		convert_celsius(temperature, output_scale: output_scale)
-	elsif input_scale == "fahrenheit"
-		convert_fahrenheit(temperature, output_scale: output_scale)
-	elsif input_scale == "kelvin"
-		convert_kelvin(temperature, output_scale: output_scale)
+	if input_scale == 'celsius'	
+		convert_celsius(temperature, output_scale)
+	elsif input_scale == 'fahrenheit'
+		convert_fahrenheit(temperature, output_scale)
+	elsif input_scale == 'kelvin'
+		convert_kelvin(temperature, output_scale)
 	else
 		puts "WTF"
 	end
@@ -17,37 +16,36 @@ end
 
 def convert_celsius(temperature, output_scale)
 
-	if output_scale == "fahrenheit"
-		puts ((9/5) * temperature) + 32
-		return ((9/5) * temperature) + 32
-	else
-		puts temperature + 273.15
+	if output_scale == 'kelvin'
 		return temperature + 273.15
+	elsif output_scale == 'fahrenheit'
+		return ((temperature / 5) * 9) + 32.0
+	else
+		puts "WTFC"
 	end
 
 end
 
 def convert_fahrenheit(temperature, output_scale)
 
-	if output_scale == "celsius"
-		puts ((5/9) * (temperature - 32))
-		return ((5/9) * (temperature - 32))
+	if output_scale == 'celsius'
+		return ((temperature - 32.0) / 9) * 5
+	elsif output_scale == 'kelvin'
+		return (((temperature - 32.0) / 9) * 5) + 273.15
 	else
-		puts (5/9) * (temperature - 32) + 273.15
-		return (5/9) * (temperature - 32) + 273.15
+		puts "WTFF"
 	end
 
 end
 
 def convert_kelvin(temperature, output_scale)
 
-	if output_scale == "celsius"
-		puts "HELLO"
-		puts temperature + 273.15
-		return temperature + 273.15
+	if output_scale == 'celsius'
+		return temperature - 273.15
+	elsif output_scale == 'fahrenheit'
+		(((temperature - 273.15) / 5) * 9) + 32.0
 	else
-		puts ((9/5) * (temperature - 273.15)) + 32
-		return ((9/5) * (temperature - 273.15)) + 32
+		puts "WTFK"
 	end
 
 end
